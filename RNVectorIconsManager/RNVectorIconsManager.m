@@ -7,9 +7,9 @@
 //
 
 #import "RNVectorIconsManager.h"
-#import <React/RCTConvert.h>
-#import <React/RCTBridge.h>
-#import <React/RCTUtils.h>
+#import <RCTConvert.h>
+#import <RCTBridge.h>
+#import <RCTUtils.h>
 
 @implementation RNVectorIconsManager
 
@@ -47,10 +47,10 @@ RCT_EXPORT_METHOD(getImageForFont:(NSString*)fontName withGlyph:(NSString*)glyph
     CGSize iconSize = [attributedString size];
     UIGraphicsBeginImageContextWithOptions(iconSize, NO, 0.0);
     [attributedString drawAtPoint:CGPointMake(0, 0)];
-    
+
     UIImage *iconImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-  
+
     NSData *imageData = UIImagePNGRepresentation(iconImage);
     BOOL success = [imageData writeToFile:filePath atomically:YES];
     if(!success) {
